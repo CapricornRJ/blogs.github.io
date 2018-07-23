@@ -1,0 +1,12 @@
+body {
+    background-color: beige;
+    margin-left: 10%;
+    margin-right: 10%;
+    border: 2px dotted orange;
+    padding: 10px 10px 10px 10px;
+    font-family: serif;
+}
+h1 {
+    text-decoration: underline;
+    border-bottom: 1px solid saddlebrown;
+}
