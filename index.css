@@ -1,12 +1,44 @@
-body {
-    background-color: beige;
-    margin-left: 10%;
-    margin-right: 10%;
-    border: 2px dotted orange;
-    padding: 10px 10px 10px 10px;
-    font-family: serif;
+.title {
+    margin: -7px 0 4px;
+    display: inherit;
+    font-size: 18px;
+    font-weight: 700;
+    line-height: 1.5;
+    text-decoration:none;
+    color: #2f2f2f;
 }
-h1 {
+.note-list li {
+    position: relative;
+    width: 100%;
+    margin: 0 0 15px;
+    padding: 15px 2px 20px 0;
+    border-bottom: 1px solid #f0f0f0;
+    word-wrap: break-word
+}
+/*选择鼠标移到链接上的样式*/
+.title:hover {
     text-decoration: underline;
-    border-bottom: 1px solid saddlebrown;
+}
+/*选择访问过得链接样式*/
+.title:visited {
+    color: #969696;
+}
+/*生成绝对定位的元素*/
+.wrap-img {
+    position: absolute;
+    top: 50%;
+    margin-top: -60px;
+    right: 0;
+    width: 125px;
+    height: 100px
+}
+.wrap-img {
+    border-radius: 4px;
+    border: 1px solid #f0f0f0
+}
+.note-list .abstract {
+    margin-right: 150px;
+    font-size: 13px;
+    line-height: 24px;
+    color: #999
 }
