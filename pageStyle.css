@@ -4,3 +4,15 @@ body {
     margin-right: 20%;
     background-color: floralwhite;
 }
+a {
+    color: #2f2f2f;
+    text-decoration: none;
+}
+/*选择鼠标移到链接上的样式*/
+a:hover {
+    text-decoration: underline;
+}
+/*选择访问过得链接样式*/
+a:visited {
+    color: #969696;
+}
