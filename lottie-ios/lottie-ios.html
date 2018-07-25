@@ -36,13 +36,13 @@
     <!--相关使用-->
     <h2>四、相关使用</h2>
     <p>使用lottie加载json</p>
-    <p class="codeInfo">LOTAnimationView *animation = [LOTAnimationView animationNamed:@"Lottie"];<br>
-        [self.view addSubview:animation];<br>
-        [animation playWithCompletion:^(BOOL animationFinished) {<br>
-        // Do Something<br>
-        }];</p>
+    <pre><code class="Objective-C">LOTAnimationView *animation = [LOTAnimationView animationNamed:@"Lottie"];
+[self.view addSubview:animation];
+[animation playWithCompletion:^(BOOL animationFinished) {
+    // Do Something
+}];</code></pre>
     <p>循环动画</p>
-    <p class="codeInfo">animationView.loopAnimation = true</p>
+    <pre><code>animationView.loopAnimation = true</code></pre>
     <!--相关资源-->
     <h2>五、相关资源</h2>
     <p><a href="https://www.lottiefiles.com/preview">1、验证json的正确性</a></p>
