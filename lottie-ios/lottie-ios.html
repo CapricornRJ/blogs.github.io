@@ -47,7 +47,7 @@
         <pre><code>animationView.loopAnimation = true</code></pre>
         <!--遇到的问题-->
         <h2>五、遇到的问题</h2>
-        <h3>1、app进入后台在切回前台后动画会停止</h3>
+        <h3>1、app进入后台再切回前台后动画会停止</h3>
         <h4>原因:</h4>
         <p>在LOTAnimationView.m文件中，进入后台时CABasicAnimation执行了结束动画代理，移除了动画</p>
         <pre><code class="Objective-C">- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)complete {
