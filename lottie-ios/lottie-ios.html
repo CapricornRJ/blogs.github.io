@@ -45,8 +45,30 @@
 }];</code></pre>
         <p>循环动画</p>
         <pre><code>animationView.loopAnimation = true</code></pre>
+        <!--遇到的问题-->
+        <h2>五、遇到的问题</h2>
+        <h3>1、app进入后台在切回前台后动画会停止</h3>
+        <h4>原因:</h4>
+        <p>在LOTAnimationView.m文件中，进入后台时CABasicAnimation执行了结束动画代理，移除了动画</p>
+        <pre><code class="Objective-C">- (void)animationDidStop:(CAAnimation *)anim finished:(BOOL)complete {
+  if ([_compContainer animationForKey:kCompContainerAnimationKey] == anim &&
+      [anim isKindOfClass:[CABasicAnimation class]]) {
+    CABasicAnimation *playAnimation = (CABasicAnimation *)anim;
+    NSNumber *frame = _compContainer.presentationLayer.currentFrame;
+    if (complete) {
+      // Set the final frame based on the animation to/from values. If playing forward, use the
+      // toValue otherwise we want to end on the fromValue.
+      frame = [self _isSpeedNegative] ? (NSNumber *)playAnimation.toValue : (NSNumber *)playAnimation.fromValue;
+    }
+    [self _removeCurrentAnimationIfNecessary];
+    [self setProgressWithFrame:frame callCompletionIfNecessary:NO];
+    [self _callCompletionIfNecessary:complete];
+  }
+}</code></pre>
+        <h4>解决方案：(未测试)</h4>
+        <p>CABasicAnimation执行了结束动画代理中，complete为YES表示正常结束，为NO表示被打断<br>所以需要将移除动画操作放到complete==YES中</p>
         <!--相关资源-->
-        <h2>五、相关资源</h2>
+        <h2>六、相关资源</h2>
         <p><a href="https://www.lottiefiles.com/preview">1、验证json的正确性</a></p>
         <img class="image-view" src="../Resource/lottie-ios_3.png">
         <p><a href="https://www.lottiefiles.com">2、json动画下载</a></p>
