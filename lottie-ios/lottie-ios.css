@@ -38,6 +38,7 @@ pre {
     font-size: 15px;
     padding: 10px 20px 10px 20px;
     white-space: pre-wrap;
+    word-wrap: break-word;
 }
 @media screen and (max-width: 500px) {
     .article {
