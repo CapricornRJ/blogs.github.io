@@ -73,7 +73,7 @@
         <!--删除CPU架构-->
         <h2>六、删除i386、x86_64</h2>
         <p>以环信为例,先cd到HyphenateLite.framework目录下</p>
-        <pre><code>lipo HyphenateLite.framework/HyphenateLite -thin armv7 -output HyphenateLite_armv7
+        <pre><code class="Objective-C">lipo HyphenateLite.framework/HyphenateLite -thin armv7 -output HyphenateLite_armv7
 lipo HyphenateLite.framework/HyphenateLite -thin arm64 -output HyphenateLite_arm64
 lipo -create HyphenateLite_armv7 HyphenateLite_arm64 -output HyphenateLite
 mv HyphenateLite HyphenateLite.framework/</code></pre>

@@ -9,7 +9,7 @@
     position: relative;
     padding: 15px 0 20px 0;
     border-bottom: 1px solid #f0f0f0;
-    word-wrap: break-word
+    word-wrap: break-word;
 }
 /*生成绝对定位的元素*/
 .wrap-img {
