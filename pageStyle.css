@@ -17,3 +17,6 @@ ul {
     list-style: none;
     padding: 0px;
 }
+code.text-code {
+    color: #ae0000;
+}
