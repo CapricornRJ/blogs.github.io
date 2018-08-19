@@ -112,8 +112,12 @@
 }</code></pre>
         <h2>四、无限循环</h2>
         假设一共有5个item
-        <blockquote>思路一、给CollectionView设置3个分区，每个分区有5个item，默认起始位置为第一个分区，当滑动到第0、2分区时，通过修改CollectionView的偏移量来回到中间分区，但是在修改contentSize时会出现卡顿的情况</blockquote><br>
-        <blockquote>思路二、由于思路一种回到中间分区时会出现卡顿，所以将分区数量设置成5001，默认为中间分区，即(5001 - 1) / 2，当滑动到0、5000分区时返回到中间分区</blockquote>
+        <dl>
+            <dt>思路一、</dt>
+            <dd>给CollectionView设置3个分区，每个分区有5个item，默认起始位置为第一个分区，当滑动到第0、2分区时，通过修改CollectionView的偏移量来回到中间分区，但是在修改contentSize时会出现卡顿的情况</dd>
+            <dt>思路二、</dt>
+            <dd>由于思路一中回到中间分区时会出现卡顿，所以将分区数量设置成一个较大值 例如：5001（由于CollectionView有重用机制所以并不会出现内存问题），默认为中间分区，即(5001 - 1) / 2，当滑动到0、5000分区时返回到中间分区</dd>
+        </dl>
     </div>
 </body>
 </html>
