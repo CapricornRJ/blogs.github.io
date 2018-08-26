@@ -2,7 +2,7 @@ body {
     font-family: Helvetica Neue, Helvetica, Arial, sans-serif;
 }
 a {
-    color: #2f2f2f;
+    color: #0099ff;
     text-decoration: none;
 }
 /*选择鼠标移到链接上的样式*/
@@ -21,4 +21,11 @@ code.text-code {
     color: #ae0000;
     white-space: pre-wrap;
     word-wrap: break-word;
+}
+li {
+    color: #666;
+}
+p {
+    color: #666;
+    font-size: inherit;
 }
