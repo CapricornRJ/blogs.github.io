@@ -22,7 +22,8 @@
                 2.3、读取本地Json<br>
                 2.4、给服务器做压力测试<br>
                 三、使用Charles进行https抓包<br>
-                3.1、安装根证书
+                3.1、Install Charles Root Certificate<br>
+                3.2、Install Charles Root Certificate on a Mobile Device or Remote Browser
         </blockquote>
         <h2>一、Charles</h2>
         <p><a href="http://xclient.info/s/charles.html?t=114709583922cad317865fedbdacebd773a86812" target="_blank" rel="nofollow">Charles破解版下载地址点我</a></p>
@@ -63,9 +64,23 @@
         <p>接着我们就可以在弹出的对话框中，选择打压的并发线程数以及打压次数，确定之后，即可开始压测。</p>
         <img class="image-view" src="../Resource/charles_10.png">
         <h2>三、使用Charles进行https抓包</h2>
-        <h3>3.1、安装根证书</h3>
-        <p>a、安装根证书</p>
+        <h3>3.1、Install Charles Root Certificate</h3>
+        <p>安装根证书</p>
         <img class="image-view" src="../Resource/charles_11.png">
+        <p>信任根证书</p>
+        <img class="image-view" src="../Resource/charles_12.png">
+        <p>右键打开快捷菜单，选择“显示简介</p>
+        <img class="image-view" src="../Resource/charles_13.png">
+        <p>把“信任”-“使用此证书时：”的选项改为“始终信任”，此时关闭简介面板，再回到“钥匙串访问”界面，就会变成下图，说明已经安装成功：</p>
+        <img class="image-view" src="../Resource/charles_14.png">
+        <h3>3.2、Install Charles Root Certificate on a Mobile Device or Remote Browser</h3>
+        <p>手机安装证书</p>
+        <img class="image-view" src="../Resource/charles_15.png">
+        <p>会弹出以下提示框：</p>
+        <img class="image-view" src="../Resource/charles_16.png">
+        <p>手机开启http代理<br>用Safari打开并前往chls.pro/ssl就会自动跳转到以下页面：</p>
+        <img class="image-view" src="../Resource/charles_17.png">
+        <p>安装完成后就可以抓包https了</p>
     </div>
 </body>
 </html>
