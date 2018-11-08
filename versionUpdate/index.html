@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>iOS企业版app添加自动更新功能</title>
+    <link rel="stylesheet" href="../pageStyle.css" media="all">
+    <link rel="stylesheet" href="../article.css" media="all">
+</head>
+<body>
+    <div class="article">
+        <h1 class="title">iOS企业版app添加自动更新功能</h1>
+        <blockquote>最近在项目中遇到了企业版app添加自动更新功能，来提醒用户来升级app，通过调用fir获取版本信息接口，来判断是否有更新版本</blockquote>
+        <h2>1、通过fir获取当前app最新版本号</h2>
+        <a href="https://fir.im/docs/version_detection">点此跳转fir接口文档</a>
+        <p>注意此处获取到的安装地址install_url只能使用一次</p>
+        <h2>2、通过versionShort字段判断是否有更新版本</h2>
+        <p>具体比较方法如下：</p>
+        <pre><code class="Objective-C">/// 判断是否为新版本
+///
+/// - Parameter newVersion: fir上获得的版本号
+/// - Returns: 是否为新版本
+fileprivate class func compareHasNewVersion(newVersion: String) -> Bool {
+    if let appVersion = MMHUserAgent.getApplicationVersion() {
+        let currentVersionArray = appVersion.components(separatedBy: ".")
+        let newVersionArray = newVersion.components(separatedBy: ".")
+        let count = min(currentVersionArray.count, newVersionArray.count)
+
+        for index in 0..&lt;count {
+                               let currentV = Int(currentVersionArray[index]) ?? 0
+                               let newV = Int(newVersionArray[index]) ?? 0
+                               if newV > currentV {
+                return true
+            }
+        }
+    }
+    return false
+}</code></pre>
+        <h2>3、准备好plist文件和ipa包，更新app</h2>
+        <p>plist代码示例：<a href="test.plist">点击下载plist模板</a></p>
+        <img class="image-view" src="../Resource/versionUpdate_1.png">
+        <p>安装app：</p>
+        <pre><code class="Objective-C">if let url = URL(string: String(format: "itms-services://?action=download-manifest&url=%@", "https://xxx.plist")) {
+    UIApplication.shared.openURL(url)
+}</code></pre>
+    </div>
+</body>
+</html>
