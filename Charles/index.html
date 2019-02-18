@@ -80,6 +80,10 @@
         <img class="image-view" src="../Resource/charles_16.png">
         <p>手机开启http代理<br>用Safari打开并前往chls.pro/ssl就会自动跳转到以下页面：</p>
         <img class="image-view" src="../Resource/charles_17.png">
+        <p>虽然charles的根证书已经在安装列表中显示,但它是被关闭的。在iOS 10.3之前,当你将安装一个自定义证书,iOS会默认信任,不需要进一步的设置。而iOS 10.3之后,安装新的自定义证书默认是不受信任的。如果要信任已安装的自定义证书,需要手动打开开关以信任证书</p>
+        <h4>解决：</h4>
+        <p>设置->通用->关于本机->证书信任设置-> 找到charles proxy custom root certificate然后信任该证书即可</p>
+        <img class="image-view" src="../Resource/charles_18.png">
         <p>安装完成后就可以抓包https了</p>
     </div>
 </body>
