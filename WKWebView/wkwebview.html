@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
+    <title>WKWebView使用详解</title>
+    <link rel="stylesheet" href="../pageStyle.css" media="all">
+    <link rel="stylesheet" href="../article.css" media="all">
+</head>
+<body>
+    <div class="article">
+        <h1 class="title">WKWebView使用详解</h1>
+        <blockquote>
+            <p>WKWebView 是苹果在 WWDC 2014 上推出的新一代 webView 组件，用以替代 UIKit 中笨重难用、内存泄漏的 UIWebView。WKWebView 拥有60fps滚动刷新率、和 safari 相同的 JavaScript 引擎等优势</p>
+        </blockquote>
+        <blockquote>目录<br>
+            一、获取title<br>
+            1.1、通过KVO获取title<br>
+            1.2、通过JS交互获取title<br>
+            二、监听页面加载进度<br>
+        </blockquote>
+        <h2>一、获取title</h2>
+        <h3>1.1、通过KVO获取title</h3>
+        <pre><code class="Objective-C">//1、设置观察者
+webView.addObserver(self, forKeyPath: "title", options: NSKeyValueObservingOptions.new, context: nil)
+//2、观察内容变化
+override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    if keyPath == "title" {
+        self.navigationBarTitle = webView.title
+    }
+}
+//3、停止观察
+deinit {
+    webView.removeObserver(self, forKeyPath: "title")
+}</code></pre>
+        <h3>1.2、通过JS交互获取title</h3>
+        <pre><code class="Objective-C">extension MMHWebViewController: WKNavigationDelegate {
+    func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        webView.evaluateJavaScript("document.title") { [weak self] (returnValue, error) in
+            if let titleStr = returnValue as? String {
+                self?.navigationBarTitle = titleStr
+            } else {
+                super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+            }
+        }
+    }
+}</code></pre>
+        <h2>二、监听页面加载进度</h2>
+        <pre><code class="Objective-C">//1、创建progressView并添加到父视图
+var progressView: UIProgressView = {
+    let progressView = UIProgressView(frame: CGRect(x: 0, y: navigationBarHeight, width: Int(ScreenWidth), height: 6))
+    progressView.progressTintColor = C21
+    progressView.trackTintColor = UIColor.clear
+    return progressView
+}()
+view.addSubview(progressView)
+//2、设置观察者
+webView.addObserver(self, forKeyPath: "estimatedProgress", options: NSKeyValueObservingOptions.new, context: nil)
+//3、观察内容变化
+override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+    if (keyPath == "estimatedProgress") {
+        if let currentObj = object as? WKWebView, currentObj == self.webView {
+            progressView.alpha = 1
+            progressView.setProgress(Float(currentObj.estimatedProgress), animated: true)
+            if(webView.estimatedProgress >= 1.0) {
+                UIView.animate(withDuration: 0.3, delay: 0.3, options: UIViewAnimationOptions.curveEaseOut, animations: {
+                    self.progressView.alpha = 0
+                }) { (finished) in
+                    self.progressView.setProgress(0.0, animated: false)
+                }
+            }
+        } else {
+            super.observeValue(forKeyPath: keyPath, of: object, change: change, context: context)
+        }
+    }
+}
+//4、停止观察
+deinit {
+    webView.removeObserver(self, forKeyPath: "title")
+}</code></pre>
+    </div>
+</body>
+</html>
