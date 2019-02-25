@@ -76,7 +76,7 @@ override func observeValue(forKeyPath keyPath: String?, of object: Any?, change:
 }
 //4、停止观察
 deinit {
-    webView.removeObserver(self, forKeyPath: "title")
+    webView.removeObserver(self, forKeyPath: "estimatedProgress")
 }</code></pre>
     </div>
 </body>
