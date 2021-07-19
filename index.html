@@ -1,86 +1,98 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=no"/>
-    <link rel="stylesheet" href="pageStyle.css" media="all">
-    <link rel="stylesheet" href="index.css" media="all">
-    <title>Capricornrj的博客</title>
+  <!--
+    If you are serving your web app in a path other than the root, change the
+    href value below to reflect the base path you are serving from.
+
+    The path provided below has to start and end with a slash "/" in order for
+    it to work correctly.
+
+    For more details:
+    * https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base
+  -->
+  <base href="/">
+
+  <meta charset="UTF-8">
+  <meta content="IE=Edge" http-equiv="X-UA-Compatible">
+  <meta name="description" content="A new Flutter project.">
+
+  <!-- iOS meta tags & icons -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="apple-mobile-web-app-title" content="flutter_blog">
+  <link rel="apple-touch-icon" href="icons/Icon-192.png">
+
+  <title>flutter_blog</title>
+  <link rel="manifest" href="manifest.json">
 </head>
 <body>
-    <div class="container">
-        <ul class="note-list">
-            <li>
-                <span class="category">iOS</span>
-                <img class="wrap-img" src="Resource/index_1.jpg">
-                <a class="title" href="lottie-ios/lottie-ios.html" target="_blank">iOS开发之lottie动画</a>
-                <p class="abstract">Lottie 是一个可应用于Andriod和iOS的动画库，可以直接使用json实现各种复杂的动画，有了这个第三方框架再也不必为了各种动画的实现而苦恼...</p>
-                <span class="date">2018-7-25</span>
-            </li>
-            <li>
-                <span class="category">iOS</span>
-                <img class="wrap-img" src="Resource/index_2.png">
-                <a class="title" href="DepotIntroduce-iOS/depotIntroduce.html" target="_blank">静态库与动态库介绍</a>
-                <p class="abstract">这里主要介绍查看静态库与动态库的区别，查看他们支持的平台架构，以及架构的拆分与合并，和上架APP Store需要注意的事项</p>
-                <span class="date">2018-7-31</span>
-            </li>
-            <li>
-                <span class="category">iOS</span>
-                <img class="wrap-img" src="Resource/index_3.png">
-                <a class="title" href="CollectionViewCenterCircle/index.html" target="_blank">UICollectionView居中无限循环</a>
-                <p class="abstract">使用UICollectionView实现无限循环效果，通过重写FlowLayout让视图居中显示，并且在滑动过程中存在缩放效果，视图越接近屏幕中心越大</p>
-                <span class="date">2018-8-12</span>
-            </li>
-            <li>
-                <span class="category">iOS</span>
-                <img class="wrap-img" src="Resource/index_4.jpg">
-                <a class="title" href="runtime_associatedObject/index.html" target="_blank">runtime-关联对象</a>
-                <p class="abstract">这里主要结合runtime源码来理解1、Associated Objects 的实现原理2、@property如何实现getter、setter方法3、Category无法添加实例变量的原因</p>
-                <span class="date">2018-8-26</span>
-            </li>
-            <li>
-                <span class="category">iOS</span>
-                <img class="wrap-img" src="Resource/index_5.jpeg">
-                <a class="title" href="runtime_msgSend/index.html" target="_blank">runtime-消息发送和转发流程</a>
-                <p class="abstract">这里主要结合源码来理解：1)runtime消息传递<br>2)runtime消息转发</p>
-                <span class="date">2018-9-5</span>
-            </li>
-            <li>
-                <span class="category">工具</span>
-                <img class="wrap-img" src="Resource/index_6.jpeg">
-                <a class="title" href="Charles/index.html" target="_blank">Charles相关使用</a>
-                <p class="abstract">Charles 是在 Mac 下常用的截取网络封包的工具，在做 iOS 开发时，我们为了调试与服务器端的网络通讯协议，常常需要截取网络封包来分析。Charles 通过将自己设置成系统的网络访问代理服务器，使得所有的网络访问请求都通过它来完成，从而实现了网络封包的截取和分析。</p>
-                <span class="date">2018-10-10</span>
-            </li>
-            <li>
-                <span class="category">iOS</span>
-                <img class="wrap-img" src="Resource/index_7.jpeg">
-                <a class="title" href="versionUpdate/index.html" target="_blank">iOS企业版app添加自动更新功能</a>
-                <p class="abstract">最近在项目中遇到了企业版app添加自动更新功能，来提醒用户来升级app，通过调用fir获取版本信息接口，来判断是否有更新版本。但要注意，由于目前app store的政策限制，对于iOS应用，不允许出现“检测最新版本”，以及不允许出现版本更新提示的功能，但凡发现，可能会面临下架的风险。</p>
-                <span class="date">2018-11-8</span>
-            </li>
-            <li>
-                <span class="category">iOS</span>
-                <img class="wrap-img" src="Resource/index_8.jpeg">
-                <a class="title" href="WKWebView/wkwebview.html" target="_blank">WKWebView使用详解</a>
-                <p class="abstract">WKWebView 是苹果在 WWDC 2014 上推出的新一代 webView 组件，用以替代 UIKit 中笨重难用、内存泄漏的 UIWebView。WKWebView 拥有60fps滚动刷新率、和 safari 相同的 JavaScript 引擎等优势。</p>
-                <span class="date">2019-2-18</span>
-            </li>
-            <li>
-                <span class="category">iOS</span>
-                <img class="wrap-img" src="Resource/index_9.jpeg">
-                <a class="title" href="ConfigurationFile/index.html" target="_blank">企业APP证书配置文件到期问题</a>
-                <p class="abstract">配置文件的有效期是1年，一旦超过了期限就会导致APP闪退，这篇文章主要讲解如何查看ipa包中配置文件的有效时间。</p>
-                <span class="date">2019-3-31</span>
-            </li>
-            <li>
-                <span class="category">iOS</span>
-                <img class="wrap-img" src="Resource/index_10.jpg">
-                <a class="title" href="flutter_share/flutter_share.html" target="_blank">Flutter混合开发实践</a>
-                <p class="abstract">为了促进团队开发效率，满足快速迭代的业务需求，所以跨平台技术来解决所面临的问题。Flutter具有跨平台、高保真、高性能等特性，而且Flutter还是 Google 开源的技术，自身也具备一定的热度，所以我们在2020年就准备将Flutter在唯小贝项目中落地</p>
-                <span class="date">2020-6-11</span>
-            </li>
-        </ul>
-    </div>
+  <!-- This script installs service_worker.js to provide PWA functionality to
+       application. For more information, see:
+       https://developers.google.com/web/fundamentals/primers/service-workers -->
+  <script>
+    var serviceWorkerVersion = '1157966685';
+    var scriptLoaded = false;
+    function loadMainDartJs() {
+      if (scriptLoaded) {
+        return;
+      }
+      scriptLoaded = true;
+      var scriptTag = document.createElement('script');
+      scriptTag.src = 'main.dart.js';
+      scriptTag.type = 'application/javascript';
+      document.body.append(scriptTag);
+    }
+
+    if ('serviceWorker' in navigator) {
+      // Service workers are supported. Use them.
+      window.addEventListener('load', function () {
+        // Wait for registration to finish before dropping the <script> tag.
+        // Otherwise, the browser will load the script multiple times,
+        // potentially different versions.
+        var serviceWorkerUrl = 'flutter_service_worker.js?v=' + serviceWorkerVersion;
+        navigator.serviceWorker.register(serviceWorkerUrl)
+          .then((reg) => {
+            function waitForActivation(serviceWorker) {
+              serviceWorker.addEventListener('statechange', () => {
+                if (serviceWorker.state == 'activated') {
+                  console.log('Installed new service worker.');
+                  loadMainDartJs();
+                }
+              });
+            }
+            if (!reg.active && (reg.installing || reg.waiting)) {
+              // No active web worker and we have installed or are installing
+              // one for the first time. Simply wait for it to activate.
+              waitForActivation(reg.installing ?? reg.waiting);
+            } else if (!reg.active.scriptURL.endsWith(serviceWorkerVersion)) {
+              // When the app updates the serviceWorkerVersion changes, so we
+              // need to ask the service worker to update.
+              console.log('New service worker available.');
+              reg.update();
+              waitForActivation(reg.installing);
+            } else {
+              // Existing service worker is still good.
+              console.log('Loading app from service worker.');
+              loadMainDartJs();
+            }
+          });
+
+        // If service worker doesn't succeed in a reasonable amount of time,
+        // fallback to plaint <script> tag.
+        setTimeout(() => {
+          if (!scriptLoaded) {
+            console.warn(
+              'Failed to load app from service worker. Falling back to plain <script> tag.',
+            );
+            loadMainDartJs();
+          }
+        }, 4000);
+      });
+    } else {
+      // Service workers not supported. Just drop the <script> tag.
+      loadMainDartJs();
+    }
+  </script>
 </body>
 </html>
